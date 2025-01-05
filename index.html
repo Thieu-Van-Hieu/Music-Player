@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./assets/img/app-icon.png" type="image/x-icon">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+</head>
+
+<body>
+    <div class="app">
+        <div class="music-container">
+            <div class="dashboard">
+                <div class="dashboard__text">
+                    Now playing:
+                </div>
+                <h2 class="dashboard__title">
+                    Tên bài hát
+                </h2>
+                <img class="dashboard__img" src="./assets/img/music-img.jpg">
+                <div class="dashboard__controls">
+                    <button class="dashboard__btn" id="repeat">
+                        <i class="fa-solid fa-rotate-right"></i>
+                    </button>
+                    <button class="dashboard__btn" id="prev">
+                        <i class="fas fa-backward-step"></i>
+                    </button>
+                    <button class="dashboard__btn dashboard__btn--primary" id="play">
+                        <i class="fas fa-play icon-play"></i>
+                        <i class="fa-solid fa-pause icon-pause"></i>
+                    </button>
+                    <button class="dashboard__btn" id="next">
+                        <i class="fas fa-forward-step"></i>
+                    </button>
+                    <button class="dashboard__btn" id="random">
+                        <i class="fa-solid fa-random"></i>
+                    </button>
+                </div>
+                <input class="dashboard__progress" type="range" min="0" max="100" value="0" title="Progress">
+                <audio id="audio" src=""></audio>
+            </div>
+            <ul class="playlist">
+                <li class="song">
+                    <img class="song__img" src="./assets/img/music-img.jpg">
+                    <div class="song__text">
+                        <h3 class="song__title">
+                            Tên bài hát
+                        </h3>
+                        <div class="song__desc">Ca sĩ / nhóm nhạc</div>
+                    </div>
+                    <button class="song__btn">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </button>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
