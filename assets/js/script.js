@@ -100,7 +100,9 @@ const app = {
     render: function () {
         const htmls = this.songs.map((song, index) => {
             return `
-                <li class="song ${index === this.currentIndex ? 'song--active' : ''}" data-index="${index}">
+                <li class="song ${
+                    index === this.currentIndex ? "song--active" : ""
+                }" data-index="${index}">
                     <img class="song__img" src="${song.avatar}">
                     <div class="song__text">
                         <h3 class="song__title">
@@ -244,12 +246,13 @@ const app = {
         };
 
         playList.onclick = function (event) {
-            const songNode = event.target.closest(
-                ".song:not(.song--active)"
-            );
-            
+            const songNode = event.target.closest(".song:not(.song--active)");
+
             //Xử lý sự kiện khi click vào bài hát trong playlist sẽ phát bài hát đó
-            if (event.target.closest(".song:not(.song--active)") && !event.target.closest(".song__btn")) {
+            if (
+                event.target.closest(".song:not(.song--active)") &&
+                !event.target.closest(".song__btn")
+            ) {
                 _this.currentIndex = Number(songNode.dataset.index);
                 _this.loadCurrentSong();
                 _this.activeSong($(".song.song--active"), songNode);
@@ -272,10 +275,14 @@ const app = {
 
     //Tải cấu hình
     loadConfig: function () {
-        const configCurrentSong = this.songs.find((song) => song.name === this.config.currentSong.name);
+        if (this.config.currentSong) {
+            const configCurrentSong = this.songs.find(
+                (song) => song.name === this.config.currentSong.name
+            );
 
-        if (this.songs.includes(configCurrentSong)) {
-            this.currentIndex = this.songs.indexOf(configCurrentSong);
+            if (this.songs.includes(configCurrentSong)) {
+                this.currentIndex = this.songs.indexOf(configCurrentSong);
+            }
         }
         this.isRandom = this.config.isRandom;
         this.isRepeat = this.config.isRepeat;
