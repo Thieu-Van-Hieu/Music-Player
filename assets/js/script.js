@@ -284,8 +284,8 @@ const app = {
                 this.currentIndex = this.songs.indexOf(configCurrentSong);
             }
         }
-        this.isRandom = this.config.isRandom;
-        this.isRepeat = this.config.isRepeat;
+        this.isRandom = !!this.config.isRandom;
+        this.isRepeat = !!this.config.isRepeat;
     },
 
     //Phát bài hát trước
@@ -358,6 +358,7 @@ const app = {
         //Hiển thị trạng thái ban đầu của nút repeat và random
         repeatBtn.classList.toggle("dashboard__btn--active", this.isRepeat);
         randomBtn.classList.toggle("dashboard__btn--active", this.isRandom);
+        console.log(this.isRepeat, this.isRandom);
     },
 };
 
